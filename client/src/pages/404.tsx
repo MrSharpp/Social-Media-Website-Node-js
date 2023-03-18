@@ -1,13 +1,12 @@
 import {
   createStyles,
-  Container,
   Title,
   Text,
   Button,
+  Container,
   Group,
   rem,
 } from '@mantine/core';
-import { Illustration } from './Illustration';
 
 const useStyles = createStyles(theme => ({
   root: {
@@ -15,22 +14,19 @@ const useStyles = createStyles(theme => ({
     paddingBottom: rem(80),
   },
 
-  inner: {
-    position: 'relative',
-  },
-
-  image: {
-    ...theme.fn.cover(),
-    opacity: 0.75,
-  },
-
-  content: {
-    paddingTop: rem(220),
-    position: 'relative',
-    zIndex: 1,
+  label: {
+    textAlign: 'center',
+    fontWeight: 900,
+    fontSize: rem(220),
+    lineHeight: 1,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[4]
+        : theme.colors.gray[2],
 
     [theme.fn.smallerThan('sm')]: {
-      paddingTop: rem(120),
+      fontSize: rem(120),
     },
   },
 
@@ -46,37 +42,34 @@ const useStyles = createStyles(theme => ({
   },
 
   description: {
-    maxWidth: rem(540),
+    maxWidth: rem(500),
     margin: 'auto',
     marginTop: theme.spacing.xl,
     marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
   },
 }));
 
-export default function NothingFoundBackground() {
+export default function NotFoundTitle() {
   const { classes } = useStyles();
 
   return (
     <Container className={classes.root}>
-      <div className={classes.inner}>
-        <Illustration className={classes.image} />
-        <div className={classes.content}>
-          <Title className={classes.title}>Nothing to see here</Title>
-          <Text
-            color="dimmed"
-            size="lg"
-            align="center"
-            className={classes.description}
-          >
-            Page you are trying to open does not exist. You may have mistyped
-            the address, or the page has been moved to another URL. If you think
-            this is an error contact support.
-          </Text>
-          <Group position="center">
-            <Button size="md">Take me back to home page</Button>
-          </Group>
-        </div>
-      </div>
+      <div className={classes.label}>404</div>
+      <Title className={classes.title}>You have found a secret place.</Title>
+      <Text
+        color="dimmed"
+        size="lg"
+        align="center"
+        className={classes.description}
+      >
+        Unfortunately, this is only a 404 page. You may have mistyped the
+        address, or the page has been moved to another URL.
+      </Text>
+      <Group position="center">
+        <Button variant="subtle" size="md">
+          Take me back to home page
+        </Button>
+      </Group>
     </Container>
   );
 }
