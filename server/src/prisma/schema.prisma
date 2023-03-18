@@ -1,0 +1,11 @@
+model Collections {
+    id      Int      @id @default(autoincrement())
+    columns String
+    Records Record[]
+}
+
+model Record {
+    id            Int         @id @default(autoincrement())
+    collection    Collections @relation(fields: [collectionsId], references: [id])
+    collectionsId Int
+}
