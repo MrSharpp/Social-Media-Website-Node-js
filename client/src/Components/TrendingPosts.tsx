@@ -2,8 +2,8 @@ import { Paper, Flex, Text, createStyles, Anchor } from '@mantine/core';
 
 export const TrendingPosts = () => {
   return (
-    <Paper shadow={'xs'} radius={'md'}>
-      <Text weight={600} py="8px" pl={'20px'} color="gray">
+    <Paper radius={'md'}>
+      <Text weight={600} size="md" py="10px" pl={'20px'} color="gray">
         Trending Posts
       </Text>
       <hr

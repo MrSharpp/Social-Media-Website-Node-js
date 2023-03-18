@@ -2,12 +2,12 @@ import { Anchor, Flex, Paper, Text } from '@mantine/core';
 
 export const Events = () => {
   return (
-    <Paper shadow={'xs'} radius={'md'}>
-      <Text weight={400} py="8px" pl={'20px'}>
+    <Paper radius={'md'}>
+      <Text weight={600} size="md" py="10px" pl={'20px'} color="gray">
         Events
       </Text>
       <hr
-        color="lightGray"
+        color="#E9ECEF"
         style={{ border: 'none', height: '1px', margin: 0, padding: 0 }}
       />
       <Flex direction={'column'} gap="xs" py="15px" pl={'20px'}>
