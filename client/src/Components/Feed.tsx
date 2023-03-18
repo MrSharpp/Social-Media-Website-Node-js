@@ -10,18 +10,22 @@ import {
   Button,
   Title,
   Text,
+  Anchor,
+  HoverCard,
+  Stack,
 } from '@mantine/core';
 import { IconArrowBigUp, IconArrowBigDown, IconEye } from '@tabler/icons-react';
 
 import { useState } from 'react';
+import { ProfileHover } from './ProfileHover';
 
 export const Feed = () => {
   const [status, setStatus] = useState<'' | 'upvoted' | 'downoted'>('');
 
   return (
-    <Paper withBorder  p="sm" >
-      <Flex  gap="sm" >
-          <Avatar radius={'md'} mr={0} size={44} />
+    <Paper withBorder p="sm">
+      <Flex gap="sm">
+        <ProfileHover />
 
         <Box>
           <Title order={5} my="sm">
