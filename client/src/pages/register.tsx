@@ -9,6 +9,7 @@ import {
     Text,
     Anchor,
     rem,
+    SimpleGrid,
   } from '@mantine/core';
   
   const useStyles = createStyles((theme) => ({
@@ -44,19 +45,24 @@ import {
       <div className={classes.wrapper}>
         <Paper className={classes.form} radius={0} p={30}>
           <Title order={2} className={classes.title} ta="center" mt="md" mb={50}>
-            Welcom back to AMU Tweets! 
+            Welcome New Cool User 😎!
           </Title>
+
+          <SimpleGrid cols={2} pb="sm">
+          <TextInput label="Firs Name" placeholder="Human" />
+          <TextInput label="Last Name" placeholder="Name"  />
+          </SimpleGrid>
   
           <TextInput label="Email address" placeholder="hello@gmail.com"  />
           <PasswordInput label="Password" placeholder="Your password" mt="md"  />
           <Button fullWidth mt="xl" >
-            Login
+            Sign Up
           </Button>
   
           <Text ta="center" mt="md">
-            Don&apos;t have an account?{' '}
-            <Anchor<'a'> href="register" weight={700} >
-              Register
+            Already have an account?{' '}
+            <Anchor<'a'> href="login" weight={700} >
+              Login
             </Anchor>
           </Text>
         </Paper>
