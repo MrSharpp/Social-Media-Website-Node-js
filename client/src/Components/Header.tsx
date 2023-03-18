@@ -79,7 +79,7 @@ const Header = () => {
           <Group spacing={5}>
             {[
               { link: "/", title: "Explore" },
-              { link: "/user/posts", title: "My Posts" },
+              { link: "/user/1", title: "My Posts" },
               { link: "/events", title: "Events" },
             ].map((item) => (
               <Button

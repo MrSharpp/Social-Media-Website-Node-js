@@ -19,9 +19,9 @@ export const Feed = () => {
   const [status, setStatus] = useState<'' | 'upvoted' | 'downoted'>('');
 
   return (
-    <Paper radius={'md'} p="sm">
-      <Flex gap="sm" pr={'sm'}>
-        <Avatar radius={'md'} mr={0} size={44} />
+    <Paper withBorder  p="sm" >
+      <Flex  gap="sm" >
+          <Avatar radius={'md'} mr={0} size={44} />
 
         <Box>
           <Title order={5} my="sm">
