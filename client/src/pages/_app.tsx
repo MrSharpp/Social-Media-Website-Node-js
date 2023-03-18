@@ -39,9 +39,7 @@ export default function App(props: AppProps) {
           }),
         }}
       >
-        <DefaultLayout>
-          <Component {...pageProps} />
-        </DefaultLayout>
+        <Component {...pageProps} />
       </MantineProvider>
     </>
   );
