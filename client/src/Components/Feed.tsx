@@ -25,7 +25,7 @@ export const Feed = () => {
   return (
     <Paper withBorder p="sm">
       <Flex gap="sm">
-        <ProfileHover />
+        <ProfileHover showProfile />
 
         <Box>
           <Title order={5} my="sm">

@@ -1,6 +1,14 @@
 import { HoverCard, Avatar, Group, Stack, Anchor, Text } from '@mantine/core';
 
-export function ProfileHover() {
+export function ProfileHover({ showProfile }: { showProfile: boolean }) {
+  if (!showProfile)
+    return (
+      <Avatar
+        src="https://avatars.githubusercontent.com/u/79146003?s=200&v=4"
+        radius="xl"
+      />
+    );
+
   return (
     <HoverCard width={320} shadow="md" withArrow>
       <HoverCard.Target>
