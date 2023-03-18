@@ -1,0 +1,4 @@
+[submodule "server"]
+    path = server
+    url = https://github.com/MrSharpp/HardForm/server
+	ignore = untracked
