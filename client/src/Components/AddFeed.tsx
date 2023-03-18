@@ -72,7 +72,12 @@ export const AddFeed = () => {
             >
               {' '}Files{' '}
             </Button>
-            <Button size="sm" color="blue" variant="filled">
+            <Button
+              size="sm"
+              color="blue"
+              style={{ marginLeft: 'auto' }}
+              variant="filled"
+            >
               {' '}Create Post{' '}
             </Button>
           </Group>
