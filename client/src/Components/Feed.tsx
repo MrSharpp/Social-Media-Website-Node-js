@@ -2,7 +2,7 @@ import { Paper, Grid, Avatar, Flex, Input } from '@mantine/core';
 
 export const Feed = () => {
   return (
-    <Paper shadow="xs" radius={'md'} withBorder>
+    <Paper shadow="xs" radius={'md'}>
       <Grid>
         <Grid.Col span={2} p="lg">
           <Avatar radius={'md'} mr={0} />
