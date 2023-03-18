@@ -1,10 +1,26 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { createStyles, Flex, Grid, Group, Paper, Text, Avatar, Input } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const useStyles = createStyles((theme) => ({
+  icon: {
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[5],
+  },
+
+  name: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+  },
+}));
+
 export default function Home() {
+
+  const {classes} = useStyles();
+  
+
+
   return (
     <>
       <Head>
@@ -14,7 +30,59 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Very Usefull APP</h1>
+      <Grid>
+        <Grid.Col span={3}>
+        <Paper radius={'md'} withBorder>
+      <Text weight={400} py="8px" pl={"20px"}>Trending Posts</Text>
+      <hr color="lightGray"  style={{border: 'none',height: '1px', margin: 0, padding: 0}}/>
+      <Flex direction={'column'}  py="8px" pl={"20px"}>
+        <div>
+          <Text fz="xs" size={"xs"} tt="uppercase" fw={700} c="dimmed">
+            #1
+          </Text>
+          <Text  size={"sm"}  className={classes.name}>
+           Where do i need to got ..
+          </Text>
+        </div>
+        <div>
+          <Text fz="xs" size={"xs"} tt="uppercase" fw={700} c="dimmed">
+            #2
+          </Text>
+          <Text  size={"sm"}  className={classes.name}>
+           Where do i need to got ..
+          </Text>
+        </div>
+        
+      </Flex>
+    </Paper>
+        </Grid.Col>
+        <Grid.Col span={6}>
+          <Paper shadow="xs" radius={'md'} withBorder>
+        <Grid>
+          <Grid.Col span={2} p="lg"><Avatar radius={'md'} mr={0}/></Grid.Col>
+          <Grid.Col span={10} p="lg">
+            <Flex>
+              <Input
+      placeholder="Your email"
+      style={{width: '100vh'}}
+    />
+
+    </Flex>
+    <Flex>as</Flex>
+    
+    </Grid.Col>
+        </Grid>
+    </Paper>
+    </Grid.Col>
+        <Grid.Col span={3}> <Paper shadow="xs" p="md">
+      <Text>Paper is the most basic ui component</Text>
+      <Text>
+        Use it to create cards, dropdowns, modals and other components that require background
+        with shadow
+      </Text>
+    </Paper></Grid.Col>
+
+      </Grid>
     </>
   );
 }
