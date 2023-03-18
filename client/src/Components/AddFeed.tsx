@@ -39,8 +39,9 @@ export const AddFeed = () => {
             })}
           />
 
-          <Group mt="sm">
-            <Button
+          <Group mt="sm" position="apart" >
+          <Group  >
+          <Button
               size="sm"
               leftIcon={<IconCamera size={22} />}
               color="gray"
@@ -72,6 +73,9 @@ export const AddFeed = () => {
             >
               {' '}Files{' '}
             </Button>
+            
+            </Group>
+
             <Button size="sm" color="blue" variant="filled">
               {' '}Create Post{' '}
             </Button>
