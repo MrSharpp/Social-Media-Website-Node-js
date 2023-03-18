@@ -19,8 +19,8 @@ export const Feed = () => {
   const [status, setStatus] = useState<'' | 'upvoted' | 'downoted'>('');
 
   return (
-    <Box p="sm">
-      <Flex gap="sm" p={'xs'}>
+    <Paper radius={'md'} p="sm">
+      <Flex gap="sm" pr={'sm'}>
         <Avatar radius={'md'} mr={0} size={44} />
 
         <Box>
@@ -66,6 +66,6 @@ export const Feed = () => {
           </Group>
         </Box>
       </Flex>
-    </Box>
+    </Paper>
   );
 };
