@@ -11,6 +11,7 @@ import {
   Title,
   Text,
   ActionIcon,
+  TypographyStylesProvider,
 } from '@mantine/core';
 import {
   IconCamera,
@@ -27,11 +28,11 @@ import {
 export const SingleEvent = () => {
   return (
     <Paper radius={'md'}>
-      <Flex p="xs" gap="sm">
+      <Flex p="xs" gap="sm" pr="lg">
         <Avatar radius={'md'} mr={0} size={44} />
 
-        <Box w="100%">
-          <Flex gap={'sm'}>
+        <Box>
+          <Flex gap={'sm'} my="sm">
             <IconSpeakerphone color="green" />
             <Title order={5} weight={600} color="#495057">
               GDSC Hackathon{' '}
@@ -41,7 +42,13 @@ export const SingleEvent = () => {
               19 March 2023
             </Title>
           </Flex>
-          <Text>A hackathon where bla bla bla bla bla bla bla</Text>
+          <TypographyStylesProvider>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
+              metus consequat, gravida Nulla ac sapien eros. Donec ut orci orci.
+              Duis euismod eros nec tortor molestie sollicitudin.{' '}
+            </p>
+          </TypographyStylesProvider>
           <Group mt="sm" spacing="xs">
             <Button
               size="sm"
@@ -60,6 +67,8 @@ export const SingleEvent = () => {
             >
               {' '}Downvote{' '}
             </Button>
+
+            <Button style={{ marginLeft: 'auto' }}>Register</Button>
           </Group>
         </Box>
       </Flex>
