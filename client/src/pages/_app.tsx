@@ -2,6 +2,12 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import DefaultLayout from "@/Components/DefaultLayout";
+import { Montserrat, Poppins, Quicksand } from "next/font/google";
+
+const fontStyles = Quicksand({
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -22,6 +28,15 @@ export default function App(props: AppProps) {
         theme={{
           /** Put your mantine theme override here */
           colorScheme: "light",
+          defaultRadius: "md",
+
+          ...fontStyles.style,
+
+          globalStyles: (theme) => ({
+            ".tabler-icon": {
+              strokeWidth: 1.5,
+            },
+          }),
         }}
       >
         <DefaultLayout>
