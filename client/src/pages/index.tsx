@@ -32,7 +32,7 @@ export default function Home() {
 
       <Grid>
         <Grid.Col span={3}>
-        <Paper radius={'md'} withBorder>
+        <Paper shadow={"xs"} radius={'md'} withBorder>
       <Text weight={400} py="8px" pl={"20px"}>Trending Posts</Text>
       <hr color="lightGray"  style={{border: 'none',height: '1px', margin: 0, padding: 0}}/>
       <Flex direction={'column'}  py="8px" pl={"20px"}>
