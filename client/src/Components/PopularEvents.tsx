@@ -1,10 +1,10 @@
 import { Anchor, Flex, Paper, Text } from '@mantine/core';
 
-export const Events = () => {
+export const TrendingEvents = () => {
   return (
     <Paper radius={'md'}>
       <Text weight={600} size="md" py="10px" pl={'20px'} color="gray">
-        Recent Events
+        Trending Events
       </Text>
       <hr
         color="#E9ECEF"

@@ -12,18 +12,27 @@ import { Events } from './Events';
 import Header from './Header';
 import { TrendingPosts } from './TrendingPosts';
 
-const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+const DefaultLayout = ({
+  children,
+  Left,
+  Right,
+}: {
+  children: React.ReactNode;
+  Left;
+
+  Right;
+}) => {
   return (
     <AppShell
       header={<Header />}
       navbar={
         <Navbar
           p="md"
-          sx={(theme) => ({ background: '#f9f9f9' })}
-          styles={{ root: { borderRight: "none" } }}
+          sx={theme => ({ background: '#f9f9f9' })}
+          styles={{ root: { borderRight: 'none' } }}
           width={{ base: 350 }}
         >
-          <TrendingPosts />
+          <Left />
         </Navbar>
       }
       aside={
@@ -32,13 +41,13 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
             p="md"
             hiddenBreakpoint="sm"
             width={{ sm: 200, lg: 350 }}
-            sx={(theme) => ({
+            sx={theme => ({
               background: '#f9f9f9',
               borderLeft: 'none',
             })}
             styles={{ root: { borderLeft: 'none' } }}
           >
-            <Events />
+            <Right />
           </Aside>
         </MediaQuery>
       }
