@@ -14,7 +14,7 @@ import {
 import { Feed } from "@/Components/Feed";
 import { TrendingPosts } from "@/Components/TrendingPosts";
 import { Events } from "@/Components/Events";
-import { DefaultLayout } from '@/Components/DefaultLayout';
+import DefaultLayout from "@/Components/DefaultLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
