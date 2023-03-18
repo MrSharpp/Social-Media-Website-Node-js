@@ -17,7 +17,7 @@ export const TrendingPosts = () => {
   const { classes } = useStyles();
 
   return (
-    <Paper shadow={'xs'} radius={'md'} withBorder>
+    <Paper radius={'md'} withBorder>
       <Text weight={400} py="8px" pl={'20px'}>
         Trending Posts
       </Text>

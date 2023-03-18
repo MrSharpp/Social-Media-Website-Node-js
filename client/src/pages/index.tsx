@@ -1,19 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { createStyles, Flex, Grid, Group, Paper, Text, Avatar, Input } from "@mantine/core";
+import {
+  createStyles,
+  Flex,
+  Grid,
+  Group,
+  Paper,
+  Text,
+  Avatar,
+  Input,
+} from "@mantine/core";
 import { Feed } from "@/Components/Feed";
 import { TrendingPosts } from "@/Components/TrendingPosts";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
 export default function Home() {
-
-  
-
-
   return (
     <>
       <Head>
@@ -23,22 +26,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Grid>
-        <Grid.Col span={3}>
-        <TrendingPosts/>
-        </Grid.Col>
-        <Grid.Col span={6}>
-         <Feed/>
-    </Grid.Col>
-        <Grid.Col span={3}> <Paper shadow="xs" p="md">
-      <Text>Paper is the most basic ui component</Text>
-      <Text>
-        Use it to create cards, dropdowns, modals and other components that require background
-        with shadow
-      </Text>
-    </Paper></Grid.Col>
-
-      </Grid>
+          <Feed />
+      
     </>
   );
 }
