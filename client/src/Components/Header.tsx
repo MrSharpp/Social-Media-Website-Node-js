@@ -22,8 +22,13 @@ import {
   IconMessage,
   IconSearch,
 } from "@tabler/icons-react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Header = () => {
+
+  const router = useRouter();
+
   return (
     <MHeader height={120}>
       <SimpleGrid
@@ -71,14 +76,27 @@ const Header = () => {
         <Group spacing={50}>
           <Title order={3}> Community </Title>
 
-          <Group>
-            <Button> Explore </Button>
-            <Button variant="subtle" color="gray" > My Posts </Button>
-            <Button variant="subtle" color="gray" > Events </Button>
+          <Group spacing={5}>
+            {[
+              { link: "/", title: "Explore" },
+              { link: "/user/posts", title: "My Posts" },
+              { link: "/events", title: "Events" },
+            ].map((item) => (
+              <Button
+                key={item.link}
+                component={Link}
+                href={item.link}
+                variant="white"
+                p="xs"
+                color={item.link === router.asPath ? "blue" : "gray"}
+              >
+                {item.title}
+              </Button>
+            ))}
           </Group>
         </Group>
 
-        <ActionIcon size="lg" >
+        <ActionIcon size="lg">
           <IconDotsVertical size={22} />
         </ActionIcon>
       </Group>
