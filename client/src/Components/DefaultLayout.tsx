@@ -6,10 +6,11 @@ import {
   Navbar,
   Paper,
   Text,
-} from "@mantine/core";
-import React from "react";
-import Header from "./Header";
-import { TrendingPosts } from "./TrendingPosts";
+} from '@mantine/core';
+import React from 'react';
+import { Events } from './Events';
+import Header from './Header';
+import { TrendingPosts } from './TrendingPosts';
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -26,30 +27,26 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
         </Navbar>
       }
       aside={
-        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+        <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
           <Aside
             p="md"
             hiddenBreakpoint="sm"
             width={{ sm: 200, lg: 350 }}
             sx={(theme) => ({
               background: '#f9f9f9',
-              borderLeft: "none",
+              borderLeft: 'none',
             })}
-            styles={{ root: { borderLeft: "none" } }}
+            styles={{ root: { borderLeft: 'none' } }}
           >
-            <Paper withBorder p="md">
-              <Text>Paper is the most basic ui component</Text>
-              <Text>
-                Use it to create cards, dropdowns, modals and other components
-                that require background with shadow
-              </Text>
-            </Paper>
+            <Events />
           </Aside>
         </MediaQuery>
       }
       padding="md"
     >
-      <Box>{children}</Box>
+      <Box>
+        {children}
+      </Box>
     </AppShell>
   );
 };

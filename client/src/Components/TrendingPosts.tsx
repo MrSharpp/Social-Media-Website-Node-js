@@ -1,28 +1,13 @@
 import { Paper, Flex, Text, createStyles, Anchor } from '@mantine/core';
 
-const useStyles = createStyles(theme => ({
-  icon: {
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[3]
-        : theme.colors.gray[5],
-  },
-
-  name: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-  },
-}));
-
 export const TrendingPosts = () => {
-  const { classes } = useStyles();
-
   return (
-    <Paper radius={'md'} withBorder>
-      <Text weight={400} py="8px" pl={'20px'}>
+    <Paper radius={'md'}>
+      <Text weight={600} size="md" py="10px" pl={'20px'} color="gray">
         Trending Posts
       </Text>
       <hr
-        color="lightGray"
+        color="#E9ECEF"
         style={{ border: 'none', height: '1px', margin: 0, padding: 0 }}
       />
       <Flex direction={'column'} py="8px" pl={'20px'}>
