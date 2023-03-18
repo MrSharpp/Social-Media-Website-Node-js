@@ -27,7 +27,7 @@ export default function Home() {
         </Grid.Col>
         <Grid.Col span={6}>
          <Feed/>
-    </Grid.Col>
+        </Grid.Col>
         <Grid.Col span={3}> 
         <Events/>
     </Grid.Col>
