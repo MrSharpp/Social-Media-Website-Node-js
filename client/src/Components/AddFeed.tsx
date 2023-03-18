@@ -8,76 +8,85 @@ import {
   Group,
   Button,
   Textarea,
-} from '@mantine/core';
+} from "@mantine/core";
 import {
   IconCamera,
   IconPhoto,
   IconVideo,
   IconFiles,
   IconMapPin,
-} from '@tabler/icons-react';
+} from "@tabler/icons-react";
 
 export const AddFeed = () => {
   return (
-    <Paper radius={'md'}>
+    <Paper radius={"md"}>
       <Flex p="xs" gap="sm">
-        <Avatar radius={'md'} mr={0} size={44} />
+        <Avatar radius={"md"} mr={0} size={44} />
 
         <Box w="100%">
           <Textarea
             variant="filled"
             size="md"
             placeholder="Share or ask something from everyone"
-            style={{ width: '100%' }}
-            styles={theme => ({
+            style={{ width: "100%" }}
+            styles={(theme) => ({
               input: {
                 background: theme.colors.gray[0],
-                '&:hover': {
+                "&:hover": {
                   background: theme.colors.gray[1],
                 },
               },
             })}
           />
 
-          <Group mt="sm" position="apart" >
-          <Group  >
-          <Button
-              size="sm"
-              leftIcon={<IconCamera size={22} />}
-              color="gray"
-              variant="subtle"
-            >
-              {' '}Camera{' '}
-            </Button>
-            <Button
-              size="sm"
-              leftIcon={<IconPhoto size={22} />}
-              color="gray"
-              variant="subtle"
-            >
-              {' '}Images{' '}
-            </Button>
-            <Button
-              size="sm"
-              leftIcon={<IconVideo size={22} />}
-              color="gray"
-              variant="subtle"
-            >
-              {' '}Videos{' '}
-            </Button>
-            <Button
-              size="sm"
-              leftIcon={<IconFiles size={22} />}
-              color="gray"
-              variant="subtle"
-            >
-              {' '}Files{' '}
-            </Button>
-            
+          <Group mt="sm" position="apart">
+            <Group>
+              <Button
+                size="sm"
+                leftIcon={<IconCamera size={22} />}
+                color="gray"
+                variant="subtle"
+              >
+                {" "}
+                Camera{" "}
+              </Button>
+              <Button
+                size="sm"
+                leftIcon={<IconPhoto size={22} />}
+                color="gray"
+                variant="subtle"
+              >
+                {" "}
+                Images{" "}
+              </Button>
+              <Button
+                size="sm"
+                leftIcon={<IconVideo size={22} />}
+                color="gray"
+                variant="subtle"
+              >
+                {" "}
+                Videos{" "}
+              </Button>
+              <Button
+                size="sm"
+                leftIcon={<IconFiles size={22} />}
+                color="gray"
+                variant="subtle"
+              >
+                {" "}
+                Files{" "}
+              </Button>
             </Group>
 
-            <Button size="sm" color="blue" variant="filled">
-              {' '}Create Post{' '}
+            <Button
+              size="sm"
+              color="blue"
+              style={{ marginLeft: "auto" }}
+              variant="filled"
+            >
+              {" "}
+              Create Post{" "}
             </Button>
           </Group>
         </Box>
