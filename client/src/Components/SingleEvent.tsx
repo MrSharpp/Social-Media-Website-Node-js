@@ -53,8 +53,8 @@ export const SingleEvent = () => {
             <Button
               size="sm"
               leftIcon={<IconArrowBigUp size={22} />}
-              color={status === 'upvoted' ? 'blue' : 'gray'}
-              variant={status === 'upvoted' ? 'light' : 'subtle'}
+              color={true === 'upvoted' ? 'blue' : 'gray'}
+              variant={true === 'upvoted' ? 'light' : 'subtle'}
             >
               {' '}Upvote{' '}
             </Button>
@@ -62,8 +62,8 @@ export const SingleEvent = () => {
             <Button
               size="sm"
               leftIcon={<IconArrowBigDown size={22} />}
-              variant={status === 'downvoted' ? 'light' : 'subtle'}
-              color={status === 'downvoted' ? 'red' : 'gray'}
+              variant={true === 'downvoted' ? 'light' : 'subtle'}
+              color={true === 'downvoted' ? 'red' : 'gray'}
             >
               {' '}Downvote{' '}
             </Button>
