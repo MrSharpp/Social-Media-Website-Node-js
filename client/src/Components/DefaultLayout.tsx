@@ -18,7 +18,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       navbar={
         <Navbar
           p="xs"
-          sx={(theme) => ({ background: theme.colors.gray[0] })}
+          sx={(theme) => ({ background: '#f9f9f9' })}
           styles={{ root: { borderRight: "none" } }}
           width={{ base: 300 }}
         >
@@ -32,7 +32,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
             hiddenBreakpoint="sm"
             width={{ sm: 200, lg: 300 }}
             sx={(theme) => ({
-              background: theme.colors.gray[0],
+              background: '#f9f9f9',
               borderLeft: "none",
             })}
             styles={{ root: { borderLeft: "none" } }}
