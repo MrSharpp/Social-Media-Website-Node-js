@@ -13,6 +13,7 @@ import {
 } from "@mantine/core";
 import { Feed } from "@/Components/Feed";
 import { TrendingPosts } from "@/Components/TrendingPosts";
+import { Events } from "@/Components/Events";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-          <Feed />
-      
+      <Feed />
     </>
   );
 }

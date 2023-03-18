@@ -1,4 +1,4 @@
-import { Paper, Flex, Text, createStyles } from '@mantine/core';
+import { Paper, Flex, Text, createStyles, Anchor } from '@mantine/core';
 
 const useStyles = createStyles(theme => ({
   icon: {
@@ -30,17 +30,17 @@ export const TrendingPosts = () => {
           <Text fz="xs" size={'xs'} tt="uppercase" fw={700} c="dimmed">
             #1
           </Text>
-          <Text size={'sm'} className={classes.name}>
+          <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
             Where do i need to got ..
-          </Text>
+          </Anchor>
         </div>
         <div>
           <Text fz="xs" size={'xs'} tt="uppercase" fw={700} c="dimmed">
             #2
           </Text>
-          <Text size={'sm'} className={classes.name}>
+          <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
             Where do i need to got ..
-          </Text>
+          </Anchor>
         </div>
       </Flex>
     </Paper>
