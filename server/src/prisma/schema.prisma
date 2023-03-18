@@ -1,3 +1,12 @@
+datasource db {
+    url      = "file:./database.db"
+    provider = "sqlite"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
 model Collections {
     id      Int      @id @default(autoincrement())
     columns String
