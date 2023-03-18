@@ -18,10 +18,10 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       header={<Header />}
       navbar={
         <Navbar
-          p="xs"
-          sx={theme => ({ background: '#f9f9f9' })}
-          styles={{ root: { borderRight: 'none' } }}
-          width={{ base: 300 }}
+          p="md"
+          sx={(theme) => ({ background: '#f9f9f9' })}
+          styles={{ root: { borderRight: "none" } }}
+          width={{ base: 350 }}
         >
           <TrendingPosts />
         </Navbar>
@@ -29,10 +29,10 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       aside={
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
           <Aside
-            p="xs"
+            p="md"
             hiddenBreakpoint="sm"
-            width={{ sm: 200, lg: 300 }}
-            sx={theme => ({
+            width={{ sm: 200, lg: 350 }}
+            sx={(theme) => ({
               background: '#f9f9f9',
               borderLeft: 'none',
             })}
@@ -42,7 +42,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
           </Aside>
         </MediaQuery>
       }
-      padding="xs"
+      padding="md"
     >
       <Box>
         {children}

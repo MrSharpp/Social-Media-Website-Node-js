@@ -10,8 +10,10 @@ import {
   Text,
   Avatar,
   Input,
+  Stack
 } from "@mantine/core";
 import { AddFeed } from "@/Components/AddFeed";
+import { Feed } from "@/Components/Feed";
 import { TrendingPosts } from "@/Components/TrendingPosts";
 import { Events } from "@/Components/Events";
 import DefaultLayout from "@/Components/DefaultLayout";
@@ -29,6 +31,15 @@ export default function Home() {
       </Head>
 
       <AddFeed />
+      
+      <Stack mt="md" >
+      <Feed />
+      <Feed />
+      <Feed />
+
+</Stack>
+
+
     </DefaultLayout>
   );
 }
