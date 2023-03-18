@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ActionIcon,
   AppShell,
@@ -14,19 +14,18 @@ import {
   UnstyledButton,
   rem,
   useMantineTheme,
-} from "@mantine/core";
-import { MantineLogo } from "@mantine/ds";
+} from '@mantine/core';
+import { MantineLogo } from '@mantine/ds';
 import {
   IconBell,
   IconDotsVertical,
   IconMessage,
   IconSearch,
-} from "@tabler/icons-react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+} from '@tabler/icons-react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Header = () => {
-
   const router = useRouter();
 
   return (
@@ -35,8 +34,8 @@ const Header = () => {
         h={60}
         px="lg"
         cols={3}
-        sx={(theme) => ({
-          alignItems: "center",
+        sx={theme => ({
+          alignItems: 'center',
           borderBottom: `1px solid ${theme.colors.gray[2]}`,
         })}
       >
@@ -49,11 +48,11 @@ const Header = () => {
         />
 
         <Group position="right">
-          <ActionIcon size={"lg"}>
+          <ActionIcon size={'lg'}>
             <IconMessage size={22} />
           </ActionIcon>
 
-          <ActionIcon size={"lg"}>
+          <ActionIcon size={'lg'}>
             <IconBell size={22} />
           </ActionIcon>
 
@@ -72,27 +71,27 @@ const Header = () => {
         </Group>
       </SimpleGrid>
 
-      <Group position="apart" align="center" h={60} px={"lg"}>
+      <Group position="apart" align="center" h={60} px={'lg'}>
         <Group spacing={50}>
           <Title order={3}> Community </Title>
 
           <Group spacing={5}>
             {[
-              { link: "/", title: "Explore" },
-              { link: "/user/1", title: "My Posts" },
-              { link: "/events", title: "Events" },
-            ].map((item) => (
+              { link: '/', title: 'Explore' },
+              { link: '/profile', title: 'My Profile' },
+              { link: '/events', title: 'Events' },
+            ].map(item =>
               <Button
                 key={item.link}
                 component={Link}
                 href={item.link}
                 variant="white"
                 p="xs"
-                color={item.link === router.asPath ? "blue" : "gray"}
+                color={item.link === router.asPath ? 'blue' : 'gray'}
               >
                 {item.title}
               </Button>
-            ))}
+            )}
           </Group>
         </Group>
 
