@@ -17,8 +17,9 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       header={<Header />}
       navbar={
         <Navbar
-          p="md"
+          p="xs"
           sx={(theme) => ({ background: theme.colors.gray[0] })}
+          styles={{ root: { borderRight: "none" } }}
           width={{ base: 300 }}
         >
           <TrendingPosts />
@@ -27,10 +28,14 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       aside={
         <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
           <Aside
-            p="md"
+            p="xs"
             hiddenBreakpoint="sm"
             width={{ sm: 200, lg: 300 }}
-            sx={(theme) => ({ background: theme.colors.gray[0] })}
+            sx={(theme) => ({
+              background: theme.colors.gray[0],
+              borderLeft: "none",
+            })}
+            styles={{ root: { borderLeft: "none" } }}
           >
             <Paper withBorder p="md">
               <Text>Paper is the most basic ui component</Text>
@@ -42,6 +47,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
           </Aside>
         </MediaQuery>
       }
+      padding="xs"
     >
       <Box>{children}</Box>
     </AppShell>

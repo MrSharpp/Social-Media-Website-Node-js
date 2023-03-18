@@ -11,7 +11,7 @@ import {
   Avatar,
   Input,
 } from "@mantine/core";
-import { Feed } from "@/Components/Feed";
+import { AddFeed } from "@/Components/AddFeed";
 import { TrendingPosts } from "@/Components/TrendingPosts";
 import { Events } from "@/Components/Events";
 import DefaultLayout from "@/Components/DefaultLayout";
@@ -28,7 +28,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Feed />
+      <AddFeed />
     </DefaultLayout>
   );
 }

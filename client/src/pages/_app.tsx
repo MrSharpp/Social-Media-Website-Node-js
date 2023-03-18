@@ -7,6 +7,7 @@ import { Montserrat, Poppins, Quicksand } from "next/font/google";
 const fontStyles = Quicksand({
   // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   weight: ["300", "400", "500", "600", "700"],
+  subsets: ['latin']
 });
 
 export default function App(props: AppProps) {
