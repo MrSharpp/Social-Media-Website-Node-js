@@ -7,6 +7,7 @@ import {
   Input,
   Group,
   Button,
+  Textarea,
 } from '@mantine/core';
 import {
   IconCamera,
@@ -23,7 +24,7 @@ export const AddFeed = () => {
         <Avatar radius={'md'} mr={0} size={44} />
 
         <Box w="100%">
-          <Input
+          <Textarea
             variant="filled"
             size="md"
             placeholder="Share or ask something from everyone"
