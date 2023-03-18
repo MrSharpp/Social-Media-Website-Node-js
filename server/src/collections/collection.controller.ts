@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { DatabaseService } from 'src/prisma/prisma.service';
 import { AddCollectionDTO } from './collection.DTO';
+import { DatabaseService } from '../../src/prisma/prisma.service';
 
 @Controller('collection')
 export class CollectionController {
