@@ -13,14 +13,20 @@ import {
   Anchor,
   HoverCard,
   Stack,
-} from '@mantine/core';
-import { IconArrowBigUp, IconArrowBigDown, IconEye } from '@tabler/icons-react';
+} from "@mantine/core";
+import { IconArrowBigUp, IconArrowBigDown, IconEye } from "@tabler/icons-react";
 
-import { useState } from 'react';
-import { ProfileHover } from './ProfileHover';
+import { useState } from "react";
+import { ProfileHover } from "./ProfileHover";
+import { IPost } from "@/sharedInterfaces/post";
 
-export const Feed = ({showProfile = true}: {showProfile?:boolean}) => {
-  const [status, setStatus] = useState<'' | 'upvoted' | 'downoted'>('');
+interface IProps {
+  showProfile?: boolean;
+  data: IPost;
+}
+
+export const Feed = ({ showProfile = true, data }: IProps) => {
+  const [status, setStatus] = useState<"" | "upvoted" | "downoted">("");
 
   return (
     <Paper withBorder p="sm">
@@ -28,15 +34,15 @@ export const Feed = ({showProfile = true}: {showProfile?:boolean}) => {
         <ProfileHover showProfile={showProfile} />
 
         <Box>
-          <Title order={5} mb="xs" mt={2  } >
-            {' '}UserName{' '}
+          <Title order={5} mb="xs" mt={2}>
+            {data.user.username}
           </Title>
 
           <TypographyStylesProvider>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
               metus consequat, gravida Nulla ac sapien eros. Donec ut orci orci.
-              Duis euismod eros nec tortor molestie sollicitudin.{' '}
+              Duis euismod eros nec tortor molestie sollicitudin.{" "}
             </p>
           </TypographyStylesProvider>
 
@@ -44,28 +50,28 @@ export const Feed = ({showProfile = true}: {showProfile?:boolean}) => {
             <Button
               size="sm"
               leftIcon={<IconArrowBigUp size={22} />}
-              color={status === 'upvoted' ? 'blue' : 'gray'}
-              variant={status === 'upvoted' ? 'light' : 'subtle'}
+              color={status === "upvoted" ? "blue" : "gray"}
+              variant={status === "upvoted" ? "light" : "subtle"}
               onClick={() => {
-                setStatus(prev => (prev === 'upvoted' ? '' : 'upvoted'));
+                setStatus((prev) => (prev === "upvoted" ? "" : "upvoted"));
               }}
             >
-              2234 Upvotes{' '}
+              2234 Upvotes{" "}
             </Button>
             <Button
               size="sm"
               leftIcon={<IconArrowBigDown size={22} />}
               onClick={() => {
-                setStatus(prev => (prev === 'downvoted' ? '' : 'downvoted'));
+                setStatus((prev) => (prev === "downvoted" ? "" : "downvoted"));
               }}
-              variant={status === 'downvoted' ? 'light' : 'subtle'}
-              color={status === 'downvoted' ? 'red' : 'gray'}
+              variant={status === "downvoted" ? "light" : "subtle"}
+              color={status === "downvoted" ? "red" : "gray"}
             >
-              1192 Downvotes{' '}
+              1192 Downvotes{" "}
             </Button>
-            <Flex gap={'xs'} style={{ marginLeft: 'auto' }}>
+            <Flex gap={"xs"} style={{ marginLeft: "auto" }}>
               <IconEye color="grey" />
-              <Text color={'gray'}>1190</Text>
+              <Text color={"gray"}>1190</Text>
             </Flex>
           </Group>
         </Box>

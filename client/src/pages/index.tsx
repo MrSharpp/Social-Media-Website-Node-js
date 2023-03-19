@@ -17,12 +17,19 @@ import { Feed } from '@/Components/Feed';
 import { TrendingPosts } from '@/Components/TrendingPosts';
 import { Events } from '@/Components/Events';
 import DefaultLayout from '@/Components/DefaultLayout';
-import { decode } from '../utils/jwt';
-import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import APIService from '@/api';
+import { IPost } from '@/sharedInterfaces/post';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const postQuery = useQuery({
+    queryKey: ['allPosts'],
+    queryFn: APIService.getAllPosts,
+    initialData: [],
+  });
+
   return (
     <DefaultLayout Left={() => <TrendingPosts />} Right={() => <Events />}>
       <Head>
@@ -35,9 +42,9 @@ export default function Home() {
       <AddFeed />
 
       <Stack mt="md">
-        <Feed />
-        <Feed />
-        <Feed />
+        {postQuery.data.map((post: IPost) =>
+          <Feed key={post.id} data={post} />
+        )}
       </Stack>
     </DefaultLayout>
   );

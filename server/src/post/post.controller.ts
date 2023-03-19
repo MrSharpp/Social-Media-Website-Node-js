@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { DatabaseService } from 'src/prisma/prisma.service';
 import { DeleteClassDTO, PostClassDTO } from './Post.DTO';
@@ -29,6 +29,16 @@ export class PostController {
       }
     }
     return response.status(404).send({ message: 'Post Doesnt exsists' });
+  }
+
+  @Get()
+  async getAllPosts(@Res() response: Response) {
+    const posts = await this.service.post.findMany({
+      include: { user: true },
+      orderBy: { created: 'asc' }
+    });
+
+    return response.status(200).send(posts);
   }
 
   @Post()
