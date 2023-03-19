@@ -24,3 +24,8 @@ export function Post(body: z.infer<typeof PostDTO>) {
 export function DeletePost(body: z.infer<typeof DeletePostSchema>) {
   return axios.post('/post/delete', body).then((res) => res.data);
 }
+
+
+export async function getAllPosts() {
+  return axios.get('/post').then((res) => res.data);
+}

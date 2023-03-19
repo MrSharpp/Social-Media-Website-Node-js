@@ -47,8 +47,6 @@ export const AddFeed = () => {
     validate: zodResolver(PostDTO.partial({ user: true })),
   });
 
-  console.log(postForm.errors);
-
   return (
     <Paper radius={'md'} withBorder>
       <Flex p="xs" gap="sm">

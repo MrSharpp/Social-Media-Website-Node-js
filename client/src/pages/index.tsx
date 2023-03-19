@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
 import {
   createStyles,
   Flex,
@@ -11,16 +11,25 @@ import {
   Avatar,
   Input,
   Stack,
-} from '@mantine/core';
-import { AddFeed } from '@/Components/AddFeed';
-import { Feed } from '@/Components/Feed';
-import { TrendingPosts } from '@/Components/TrendingPosts';
-import { Events } from '@/Components/Events';
-import DefaultLayout from '@/Components/DefaultLayout';
+} from "@mantine/core";
+import { AddFeed } from "@/Components/AddFeed";
+import { Feed } from "@/Components/Feed";
+import { TrendingPosts } from "@/Components/TrendingPosts";
+import { Events } from "@/Components/Events";
+import DefaultLayout from "@/Components/DefaultLayout";
+import { useQuery } from "@tanstack/react-query";
+import APIService from "@/api";
+import { IPost } from "@/sharedInterfaces/post";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const postQuery = useQuery({
+    queryKey: ["allPosts"],
+    queryFn: APIService.getAllPosts,
+    initialData: [],
+  });
+
   return (
     <DefaultLayout Left={() => <TrendingPosts />} Right={() => <Events />}>
       <Head>
@@ -33,9 +42,9 @@ export default function Home() {
       <AddFeed />
 
       <Stack mt="md">
-        <Feed />
-        <Feed />
-        <Feed />
+        {postQuery.data.map((post: IPost) => (
+          <Feed key={post.id} data={post} />
+        ))}
       </Stack>
     </DefaultLayout>
   );
