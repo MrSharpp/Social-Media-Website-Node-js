@@ -7,7 +7,7 @@ import { DeleteClassDTO, PostClassDTO } from './Post.DTO';
 export class PostController {
   constructor(private service: DatabaseService) {}
 
-  @Delete()
+  @Post('delete')
   async delete(@Body() body: DeleteClassDTO, @Res() response: Response) {
     const user = await this.service.user.findFirst({
       where: {

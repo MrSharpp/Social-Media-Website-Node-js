@@ -10,6 +10,7 @@ const fontStyles = Quicksand({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
 });
+import { Notifications } from '@mantine/notifications';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -23,7 +24,7 @@ export default function App(props: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-
+      <Notifications />
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
