@@ -30,5 +30,5 @@ export async function getAllPosts() {
 }
 
 export async function getUserPosts(userId: string) {
-  return axios.get(`/posts/${userId}`).then((res) => res.data);
+  return axios.get(`/post/${userId}`).then((res) => res.data);
 }

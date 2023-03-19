@@ -49,17 +49,19 @@ export class PostController {
     return response.status(200).send(posts);
   }
 
-  @Get('feeds/:id')
+  @Get(':id')
   async getUserPosts(@Res() response: Response, @Param('id') id) {
+    console.log(id);
+
     const posts = await this.service.post.findMany({
       where: {
-        userId: id
+        userId: parseInt(id)
       },
       include: { user: true },
       orderBy: { created: 'desc' }
     });
 
-    return posts;
+    return response.status(200).send({ posts });
   }
 
   @Post()

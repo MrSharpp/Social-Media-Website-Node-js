@@ -59,7 +59,7 @@ export default function Home() {
       </Head>
 
       <Stack>
-        {getFeedQuery?.data?.map((post) => <>{JSON.stringify(post)}</>)}
+        {getFeedQuery?.data?.posts?.map((post) => <Feed data={post}/>)}
       </Stack>
     </DefaultLayout>
   );
