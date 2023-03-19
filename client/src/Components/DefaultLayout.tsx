@@ -51,9 +51,9 @@ const DefaultLayout = ({
           </Aside>
         </MediaQuery>
       }
-      padding="md"
+      padding="xs"
     >
-      <Box style={{ maxWidth: 800 }}  mr="auto" ml="auto">
+      <Box style={{ maxWidth: 800 }} mr="auto" ml="auto">
         {children}
       </Box>
     </AppShell>

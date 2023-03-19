@@ -5,7 +5,7 @@ import z from 'zod';
 export const PostDTO = z.object({
   description: z
     .string()
-    .min(30, { message: 'Post should contain minimum 30 Characters' })
+    .min(10, { message: 'Post should contain minimum 10 Characters' })
     .max(255, { message: 'Post should container max of 255 Characters' }),
   user: z.number(),
 });
@@ -24,7 +24,6 @@ export async function Post(body: z.infer<typeof PostDTO>) {
 export async function DeletePost(body: z.infer<typeof DeletePostSchema>) {
   return axios.post('/post/delete', body).then((res) => res.data);
 }
-
 
 export async function getAllPosts() {
   return axios.get('/post').then((res) => res.data);
