@@ -17,27 +17,47 @@ import {
   IconMapPin,
 } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
-import { DeletePost } from '../api/post';
+import { DeletePost, Post } from '../api/post';
 import { notifications } from '@mantine/notifications';
 import { useEffect } from 'react';
 import { NotifiationError, NotifiationSucess } from './Notification';
+import { useForm, zodResolver } from '@mantine/form';
+import z from 'zod';
+import { PostDTO } from '../api/post';
 
 export const AddFeed = () => {
   const addMutation = useMutation({
-    mutationFn: DeletePost,
+    mutationFn: Post,
     onSuccess: () => {
       NotifiationSucess('Words Posted!');
     },
     onError: err => {
+      console.log(err);
+
       NotifiationError('Somethng Went Wrong');
     },
   });
+
+  interface PForm extends z.infer<typeof PostDTO> {}
+
+  const postForm = useForm<Omit<PForm, 'user'>>({
+    initialValues: {
+      description: '',
+    },
+    validate: zodResolver(PostDTO.partial({ user: true })),
+  });
+
+  console.log(postForm.errors);
 
   return (
     <Paper radius={'md'} withBorder>
       <Flex p="xs" gap="sm">
         <Avatar radius={'md'} mr={0} size={44} />
-        <form>
+        <form
+          onSubmit={postForm.onSubmit(data => {
+            addMutation.mutate({ user: 1, description: data.description });
+          })}
+        >
           <Box w="100%">
             <Textarea
               variant="filled"
@@ -52,6 +72,8 @@ export const AddFeed = () => {
                   },
                 },
               })}
+              disabled={addMutation.isLoading}
+              {...postForm.getInputProps('description')}
             />
 
             <Group mt="sm" position="apart">
@@ -92,9 +114,11 @@ export const AddFeed = () => {
 
               <Button
                 size="sm"
+                type="submit"
                 color="blue"
                 style={{ marginLeft: 'auto' }}
                 variant="filled"
+                loading={addMutation.isLoading}
               >
                 {' '}Create Post{' '}
               </Button>

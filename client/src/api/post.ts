@@ -2,8 +2,11 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { axios } from './axios';
 import z from 'zod';
 
-const PostDTO = z.object({
-  description: z.string().min(10).max(255),
+export const PostDTO = z.object({
+  description: z
+    .string()
+    .min(30, { message: 'Post should contain minimum 30 Characters' })
+    .max(255, { message: 'Post should container max of 255 Characters' }),
   user: z.number(),
 });
 
@@ -13,6 +16,8 @@ const DeletePostSchema = z.object({
 });
 
 export function Post(body: z.infer<typeof PostDTO>) {
+  console.log('er');
+
   return axios.post('/post', body).then((res) => res.data);
 }
 
