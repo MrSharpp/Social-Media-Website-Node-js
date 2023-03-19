@@ -3,7 +3,7 @@ import { z } from "zod";
 export const registerSchema = z.object({
   firstName: z.string().min(2),
   lastName: z.string().min(2),
-  username: z.string().min(4),
+  username: z.string().min(4).regex(/^[a-zA-Z0-9_-]{3,15}$/gm),
   email: z.string().email(),
   password: z
     .string()

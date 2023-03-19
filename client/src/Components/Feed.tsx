@@ -31,7 +31,7 @@ export const Feed = ({ showProfile = true, data }: IProps) => {
   return (
     <Paper withBorder p="sm">
       <Flex gap="sm">
-        <ProfileHover showProfile={showProfile} />
+        <ProfileHover showProfile={showProfile} user={data.user} />
 
         <Box>
           <Title order={5} mb="xs" mt={2}>

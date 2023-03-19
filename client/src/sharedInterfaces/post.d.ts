@@ -7,10 +7,10 @@ export interface IPost {
   userId: number;
   views: number;
   created: Date;
-  user: User;
+  user: IUser;
 }
 
-export interface User {
+export interface IUser {
   id: number;
   username: string;
   email: string;

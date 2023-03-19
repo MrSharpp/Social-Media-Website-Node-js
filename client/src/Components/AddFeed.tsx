@@ -26,7 +26,7 @@ import z from "zod";
 import { PostDTO } from "../api/post";
 import { queryClient } from "@/QueryClient";
 import { decode } from "@/utils/jwt";
-import { User } from "@/sharedInterfaces/post";
+import { IUser } from "@/sharedInterfaces/post";
 
 export const AddFeed = () => {
   interface PForm extends z.infer<typeof PostDTO> {}
@@ -60,7 +60,7 @@ export const AddFeed = () => {
           style={{ width: "100%" }}
           onSubmit={postForm.onSubmit((data) => {
             addMutation.mutate({
-              user: (decode(localStorage.getItem("token")) as User)?.id,
+              user: (decode(localStorage.getItem("token")) as IUser)?.id,
               description: data.description,
             });
           })}

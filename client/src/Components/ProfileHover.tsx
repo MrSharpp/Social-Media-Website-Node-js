@@ -1,6 +1,7 @@
 import { HoverCard, Avatar, Group, Stack, Anchor, Text } from '@mantine/core';
+import { IUser } from "@/sharedInterfaces/post";
 
-export function ProfileHover({ showProfile }: { showProfile: boolean }) {
+export function ProfileHover({ showProfile, user }: { showProfile: boolean, user: IUser }) {
   if (!showProfile)
     return (
       <Avatar
@@ -29,7 +30,7 @@ export function ProfileHover({ showProfile }: { showProfile: boolean }) {
           />
           <Stack spacing={5}>
             <Text size="sm" weight={700} sx={{ lineHeight: 1 }}>
-              Mantine
+              @{user.username}
             </Text>
             <Anchor
               href="https://twitter.com/mantinedev"
@@ -37,7 +38,7 @@ export function ProfileHover({ showProfile }: { showProfile: boolean }) {
               size="xs"
               sx={{ lineHeight: 1 }}
             >
-              @User
+              @{user.username}
             </Anchor>
           </Stack>
         </Group>
