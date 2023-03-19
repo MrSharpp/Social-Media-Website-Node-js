@@ -24,12 +24,16 @@ import { NotifiationError, NotifiationSucess } from './Notification';
 import { useForm, zodResolver } from '@mantine/form';
 import z from 'zod';
 import { PostDTO } from '../api/post';
+import { queryClient } from '@/QueryClient';
+
+
 
 export const AddFeed = () => {
   const addMutation = useMutation({
     mutationFn: Post,
     onSuccess: () => {
       NotifiationSucess('Words Posted!');
+      queryClient.invalidateQueries(['allPosts'])
     },
     onError: ({ response }) => {
       console.log(response.data.message);

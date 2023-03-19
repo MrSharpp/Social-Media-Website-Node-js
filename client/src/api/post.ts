@@ -15,13 +15,13 @@ const DeletePostSchema = z.object({
   user: z.number(),
 });
 
-export function Post(body: z.infer<typeof PostDTO>) {
+export async function Post(body: z.infer<typeof PostDTO>) {
   console.log('er');
 
   return axios.post('/post', body).then((res) => res.data);
 }
 
-export function DeletePost(body: z.infer<typeof DeletePostSchema>) {
+export async function DeletePost(body: z.infer<typeof DeletePostSchema>) {
   return axios.post('/post/delete', body).then((res) => res.data);
 }
 

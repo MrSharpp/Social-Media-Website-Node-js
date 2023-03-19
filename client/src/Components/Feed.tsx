@@ -26,7 +26,7 @@ interface IProps {
 }
 
 export const Feed = ({ showProfile = true, data }: IProps) => {
-  const [status, setStatus] = useState<"" | "upvoted" | "downoted">("");
+  const [status, setStatus] = useState<"upvoted" | "downoted" | "">("");
 
   return (
     <Paper withBorder p="sm">
@@ -39,11 +39,7 @@ export const Feed = ({ showProfile = true, data }: IProps) => {
           </Title>
 
           <TypographyStylesProvider>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
-              metus consequat, gravida Nulla ac sapien eros. Donec ut orci orci.
-              Duis euismod eros nec tortor molestie sollicitudin.{" "}
-            </p>
+            <p>{data.description}</p>
           </TypographyStylesProvider>
 
           <Group mt="sm" spacing="xs">
@@ -56,22 +52,24 @@ export const Feed = ({ showProfile = true, data }: IProps) => {
                 setStatus((prev) => (prev === "upvoted" ? "" : "upvoted"));
               }}
             >
-              2234 Upvotes{" "}
+              {data.upvote} Upvotes
             </Button>
+
             <Button
               size="sm"
               leftIcon={<IconArrowBigDown size={22} />}
               onClick={() => {
-                setStatus((prev) => (prev === "downvoted" ? "" : "downvoted"));
+                setStatus((prev) => (prev === "downoted" ? "" : "downoted"));
               }}
-              variant={status === "downvoted" ? "light" : "subtle"}
-              color={status === "downvoted" ? "red" : "gray"}
+              variant={status === "downoted" ? "light" : "subtle"}
+              color={status === "downoted" ? "red" : "gray"}
             >
-              1192 Downvotes{" "}
+              {data.downvote} Downvotes
             </Button>
+
             <Flex gap={"xs"} style={{ marginLeft: "auto" }}>
               <IconEye color="grey" />
-              <Text color={"gray"}>1190</Text>
+              <Text color={"gray"}>{data.views}</Text>
             </Flex>
           </Group>
         </Box>

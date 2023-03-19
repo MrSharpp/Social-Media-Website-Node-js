@@ -35,7 +35,7 @@ export class PostController {
   async getAllPosts(@Res() response: Response) {
     const posts = await this.service.post.findMany({
       include: { user: true },
-      orderBy: { created: 'asc' }
+      orderBy: { created: 'desc' }
     });
 
     return response.status(200).send(posts);
