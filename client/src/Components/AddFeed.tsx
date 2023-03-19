@@ -8,31 +8,42 @@ import {
   Group,
   Button,
   Textarea,
-} from '@mantine/core';
+} from "@mantine/core";
 import {
   IconCamera,
   IconPhoto,
   IconVideo,
   IconFiles,
   IconMapPin,
-} from '@tabler/icons-react';
-import { useMutation } from '@tanstack/react-query';
-import { DeletePost, Post } from '../api/post';
-import { notifications } from '@mantine/notifications';
-import { useEffect } from 'react';
-import { NotifiationError, NotifiationSucess } from './Notification';
-import { useForm, zodResolver } from '@mantine/form';
-import z from 'zod';
-import { PostDTO } from '../api/post';
-import { queryClient } from '@/QueryClient';
-import { decode } from '@/utils/jwt';
+} from "@tabler/icons-react";
+import { useMutation } from "@tanstack/react-query";
+import { DeletePost, Post } from "../api/post";
+import { notifications } from "@mantine/notifications";
+import { useEffect } from "react";
+import { NotifiationError, NotifiationSucess } from "./Notification";
+import { useForm, zodResolver } from "@mantine/form";
+import z from "zod";
+import { PostDTO } from "../api/post";
+import { queryClient } from "@/QueryClient";
+import { decode } from "@/utils/jwt";
+import { User } from "@/sharedInterfaces/post";
 
 export const AddFeed = () => {
+  interface PForm extends z.infer<typeof PostDTO> {}
+
+  const postForm = useForm<Omit<PForm, "user">>({
+    initialValues: {
+      description: "",
+    },
+    validate: zodResolver(PostDTO.partial({ user: true })),
+  });
+
   const addMutation = useMutation({
     mutationFn: Post,
     onSuccess: () => {
-      NotifiationSucess('Words Posted!');
-      queryClient.invalidateQueries(['allPosts'])
+      NotifiationSucess("Words Posted!");
+      queryClient.invalidateQueries(["allPosts"]);
+      postForm.reset();
     },
     onError: ({ response }) => {
       console.log(response.data.message);
@@ -41,22 +52,17 @@ export const AddFeed = () => {
     },
   });
 
-  interface PForm extends z.infer<typeof PostDTO> {}
-
-  const postForm = useForm<Omit<PForm, 'user'>>({
-    initialValues: {
-      description: '',
-    },
-    validate: zodResolver(PostDTO.partial({ user: true })),
-  });
-
   return (
-    <Paper radius={'md'} withBorder>
+    <Paper radius={"md"} withBorder>
       <Flex p="xs" gap="sm">
-        <Avatar radius={'md'} mr={0} size={44} />
+        <Avatar radius={"md"} mr={0} size={44} />
         <form
-          onSubmit={postForm.onSubmit(data => {
-            addMutation.mutate({ user: decode(localStorage.getItem('token'))?.id, description: data.description });
+          style={{ width: "100%" }}
+          onSubmit={postForm.onSubmit((data) => {
+            addMutation.mutate({
+              user: (decode(localStorage.getItem("token")) as User)?.id,
+              description: data.description,
+            });
           })}
         >
           <Box w="100%">
@@ -64,17 +70,17 @@ export const AddFeed = () => {
               variant="filled"
               size="md"
               placeholder="Share or ask something from everyone"
-              style={{ width: '100%' }}
-              styles={theme => ({
+              style={{ width: "100%" }}
+              styles={(theme) => ({
                 input: {
                   background: theme.colors.gray[0],
-                  '&:hover': {
+                  "&:hover": {
                     background: theme.colors.gray[1],
                   },
                 },
               })}
               disabled={addMutation.isLoading}
-              {...postForm.getInputProps('description')}
+              {...postForm.getInputProps("description")}
             />
 
             <Group mt="sm" position="apart">
@@ -85,7 +91,8 @@ export const AddFeed = () => {
                   color="gray"
                   variant="subtle"
                 >
-                  {' '}Camera{' '}
+                  {" "}
+                  Camera{" "}
                 </Button>
                 <Button
                   size="sm"
@@ -93,7 +100,8 @@ export const AddFeed = () => {
                   color="gray"
                   variant="subtle"
                 >
-                  {' '}Images{' '}
+                  {" "}
+                  Images{" "}
                 </Button>
                 <Button
                   size="sm"
@@ -101,7 +109,8 @@ export const AddFeed = () => {
                   color="gray"
                   variant="subtle"
                 >
-                  {' '}Videos{' '}
+                  {" "}
+                  Videos{" "}
                 </Button>
                 <Button
                   size="sm"
@@ -109,7 +118,8 @@ export const AddFeed = () => {
                   color="gray"
                   variant="subtle"
                 >
-                  {' '}Files{' '}
+                  {" "}
+                  Files{" "}
                 </Button>
               </Group>
 
@@ -117,11 +127,12 @@ export const AddFeed = () => {
                 size="sm"
                 type="submit"
                 color="blue"
-                style={{ marginLeft: 'auto' }}
+                style={{ marginLeft: "auto" }}
                 variant="filled"
                 loading={addMutation.isLoading}
               >
-                {' '}Create Post{' '}
+                {" "}
+                Create Post{" "}
               </Button>
             </Group>
           </Box>
