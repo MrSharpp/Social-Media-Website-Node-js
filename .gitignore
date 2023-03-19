@@ -3,3 +3,5 @@ dist
 .parcel-cache
 database.db
 migrations
+./server/src/prisma/database.db
+./server/src/prisma/database.db-journal
