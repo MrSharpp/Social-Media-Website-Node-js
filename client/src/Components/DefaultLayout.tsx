@@ -27,7 +27,8 @@ const DefaultLayout = ({
       header={<Header />}
       navbar={
         <Navbar
-          p="md"
+          p={'md'}
+          ml={'100px'}
           sx={theme => ({ background: '#f9f9f9' })}
           styles={{ root: { borderRight: 'none' } }}
           width={{ base: 350 }}
@@ -39,6 +40,7 @@ const DefaultLayout = ({
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
           <Aside
             p="md"
+            mr={'100px'}
             hiddenBreakpoint="sm"
             width={{ sm: 200, lg: 350 }}
             sx={theme => ({

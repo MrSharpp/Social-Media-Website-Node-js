@@ -65,7 +65,15 @@ const Header = () => {
 
             <Menu.Dropdown miw={100}>
               <Menu.Item>Settings</Menu.Item>
-              <Menu.Item color="red">Logout</Menu.Item>
+              <Menu.Item
+                color="red"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  router.replace('login');
+                }}
+              >
+                Logout
+              </Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </Group>
