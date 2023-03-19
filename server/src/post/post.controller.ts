@@ -43,6 +43,7 @@ export class PostController {
 
   @Post()
   async post(@Body() body: PostClassDTO, @Res() response: Response) {
+    debugger;
     const user = await this.service.user.findFirst({
       where: {
         id: body.user
@@ -68,6 +69,6 @@ export class PostController {
         response.status(500).send({ message: 'Error while creating post' });
       });
 
-    return response.status(200);
+    return response.status(200).send({ message: 'Words Posted Successfully' });
   }
 }
