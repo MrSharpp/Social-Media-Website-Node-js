@@ -45,10 +45,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Stack mt="md">
-        <Feed />
-        <Feed />
-        <Feed />
+      <Stack>
+        <Feed showProfile={false} />
+        <Feed showProfile={false} />
+        <Feed showProfile={false} />
       </Stack>
     </DefaultLayout>
   );

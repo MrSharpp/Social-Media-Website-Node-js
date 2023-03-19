@@ -19,16 +19,16 @@ import { IconArrowBigUp, IconArrowBigDown, IconEye } from '@tabler/icons-react';
 import { useState } from 'react';
 import { ProfileHover } from './ProfileHover';
 
-export const Feed = () => {
+export const Feed = ({showProfile = true}: {showProfile?:boolean}) => {
   const [status, setStatus] = useState<'' | 'upvoted' | 'downoted'>('');
 
   return (
     <Paper withBorder p="sm">
       <Flex gap="sm">
-        <ProfileHover showProfile />
+        <ProfileHover showProfile={showProfile} />
 
         <Box>
-          <Title order={5} my="sm">
+          <Title order={5} mb="xs" mt={2  } >
             {' '}UserName{' '}
           </Title>
 
