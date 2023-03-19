@@ -26,8 +26,6 @@ import { getUserPosts } from '@/api/post';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [feeds, setFeeds] = useState();
-
   const getFeedQuery = useQuery({
     queryKey: ['get_feeds'],
     queryFn: () => getUserPosts(decode(localStorage.getItem('token')).id),
@@ -41,8 +39,8 @@ export default function Home() {
           image={
             'https://images.unsplash.com/photo-1550537687-c91072c4792d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
           }
-          name={'Amir Alam'}
-          job={'Freelencer'}
+          name={decode(localStorage.getItem('token')).username}
+          job={decode(localStorage.getItem('token')).email}
           stats={[
             { label: 'Upvotes', value: '23' },
             { label: 'Downvotes', value: '23' },

@@ -6,7 +6,7 @@ import {
   SignUpCredentialsDto
 } from './dtos/signin-credentials.DTO';
 import * as bcrypt from 'bcrypt';
-
+import axios from 'axios';
 @Injectable()
 export class AuthService {
   constructor(private prisma: DatabaseService) {}

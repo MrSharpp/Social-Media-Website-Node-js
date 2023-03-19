@@ -34,11 +34,11 @@ export const Feed = ({ showProfile = true, data }: IProps) => {
   return (
     <Paper withBorder p="sm">
       <Flex gap="sm">
-        <ProfileHover showProfile={showProfile} user={data} />
+        <ProfileHover showProfile={showProfile} user={data.user} />
 
         <Box style={{ width: '100%' }}>
           <Title order={5} mb="xs" mt={2}>
-            {data.username}
+            {data.user.username}
           </Title>
 
           <TypographyStylesProvider>
