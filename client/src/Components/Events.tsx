@@ -12,10 +12,10 @@ export const Events = () => {
       />
       <Flex direction={'column'} gap="xs" py="15px" pl={'20px'}>
         <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
-          Where do i need to got ..
+          AMU GDSC Hakathon
         </Anchor>
         <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
-          Where do i need to got ..
+          ASAAS 2k23
         </Anchor>
       </Flex>
     </Paper>

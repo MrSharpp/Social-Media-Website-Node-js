@@ -10,13 +10,13 @@ export const TrendingPosts = () => {
         color="#E9ECEF"
         style={{ border: 'none', height: '1px', margin: 0, padding: 0 }}
       />
-      <Flex direction={'column'} py="8px" pl={'20px'} sx={{gap: '10px'}} >
+      <Flex direction={'column'} py="8px" pl={'20px'} sx={{ gap: '10px' }}>
         <div>
           <Text fz="xs" size={'xs'} tt="uppercase" fw={700} c="dimmed">
             #1
           </Text>
           <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
-            Where do i need to got ..
+            Today i found a good way to achieve my practical...
           </Anchor>
         </div>
 
@@ -25,7 +25,7 @@ export const TrendingPosts = () => {
             #2
           </Text>
           <Anchor style={{ textDecoration: 'none' }} size={'sm'} weight={800}>
-            Where do i need to got ..
+            Asslamualikum dears hope you are good, i have something...
           </Anchor>
         </div>
       </Flex>
