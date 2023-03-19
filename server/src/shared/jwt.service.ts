@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as jwt from 'jwt-simple';
 
-const SECRET = 'DUMMY_SECRET_FOR_NOW';
+const SECRET = '6y8jg1M7ZsA3kbYbO0_-GLMvPKU_m7vAL-RDP_DWmjU';
 
 @Injectable()
 export class JwtService {

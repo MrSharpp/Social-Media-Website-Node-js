@@ -24,6 +24,7 @@ import { NotifiationError, NotifiationSucess } from './Notification';
 import { useForm, zodResolver } from '@mantine/form';
 import z from 'zod';
 import { PostDTO } from '../api/post';
+import { decode } from '../utils/jwt';
 
 export const AddFeed = () => {
   const addMutation = useMutation({
@@ -47,15 +48,13 @@ export const AddFeed = () => {
     validate: zodResolver(PostDTO.partial({ user: true })),
   });
 
-  console.log(postForm.errors);
-
   return (
     <Paper radius={'md'} withBorder>
       <Flex p="xs" gap="sm">
         <Avatar radius={'md'} mr={0} size={44} />
         <form
           onSubmit={postForm.onSubmit(data => {
-            addMutation.mutate({ user: 1, description: data.description });
+            addMutation.mutate({ user: decode(localStorage.getItem('token'))?.id, description: data.description });
           })}
         >
           <Box w="100%">

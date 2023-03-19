@@ -17,6 +17,8 @@ import { Feed } from '@/Components/Feed';
 import { TrendingPosts } from '@/Components/TrendingPosts';
 import { Events } from '@/Components/Events';
 import DefaultLayout from '@/Components/DefaultLayout';
+import { decode } from '../utils/jwt';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
