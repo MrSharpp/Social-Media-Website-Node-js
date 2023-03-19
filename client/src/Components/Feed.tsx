@@ -27,32 +27,31 @@ interface IProps {
   data: IPost;
 }
 
-const useStyles = createStyles(theme => ({
-  lol: {
-    '&:hover': {
-      boxShadow: theme.shadows.md,
-      transform: 'scale(1.02)',
-    },
+// const useStyles = createStyles(theme => ({
+//   lol: {
+//     '&:hover': {
+//       boxShadow: theme.shadows.md,
+//       transform: 'scale(1.02)',
+//     },
 
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      left: 0,
-    },
-  },
-}));
+//     '&::before': {
+//       position: 'absolute',
+//       top: 0,
+//       bottom: 0,
+//       left: 0,
+//     },
+//   },
+// }));
 
 export const Feed = ({ showProfile = true, data }: IProps) => {
   const [status, setStatus] = useState<'upvoted' | 'downoted' | ''>('');
-  const { classes } = useStyles();
+  // const { classes } = useStyles();
 
   if (!data) return;
   console.log(data);
 
   return (
-    <Paper withBorder p="sm" className={classes.lol}>
+    <Paper withBorder p="sm">
       <Flex gap="sm">
         <ProfileHover showProfile={showProfile} user={data.user} />
 
