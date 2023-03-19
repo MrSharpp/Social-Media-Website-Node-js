@@ -13,6 +13,8 @@ import {
   Anchor,
   HoverCard,
   Stack,
+  createStyles,
+  rem,
 } from '@mantine/core';
 import { IconArrowBigUp, IconArrowBigDown, IconEye } from '@tabler/icons-react';
 
@@ -25,14 +27,32 @@ interface IProps {
   data: IPost;
 }
 
+const useStyles = createStyles(theme => ({
+  lol: {
+    '&:hover': {
+      boxShadow: theme.shadows.md,
+      transform: 'scale(1.02)',
+    },
+
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+    },
+  },
+}));
+
 export const Feed = ({ showProfile = true, data }: IProps) => {
   const [status, setStatus] = useState<'upvoted' | 'downoted' | ''>('');
+  const { classes } = useStyles();
 
   if (!data) return;
   console.log(data);
 
   return (
-    <Paper withBorder p="sm">
+    <Paper withBorder p="sm" className={classes.lol}>
       <Flex gap="sm">
         <ProfileHover showProfile={showProfile} user={data.user} />
 
