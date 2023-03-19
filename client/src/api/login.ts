@@ -1,10 +1,5 @@
 import { axios } from "./axios";
-import type { IRegisterSchema } from "@/schema/authSchema";
-
-interface ILoginSchema {
-  email: string;
-  password: string;
-}
+import type { ILoginSchema, IRegisterSchema } from "@/schema/authSchema";
 
 export async function login(body: ILoginSchema) {
   return axios.post("/login", body).then((resp) => resp.data);

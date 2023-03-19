@@ -16,7 +16,8 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import { useForm, zodResolver } from "@mantine/form";
 import { registerSchema } from "@/schema/authSchema";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -58,14 +59,14 @@ export default function Login() {
     onSuccess(data, variables, context) {
       localStorage.setItem("token", data.token);
       // router.push('/')
-      location.assign('/')
+      location.assign("/");
     },
 
     onError(error, variables, context) {
       console.error(error);
       form.setErrors({
-        email: 'Email already registered'
-      })
+        email: "Email already registered",
+      });
     },
   });
 
@@ -124,7 +125,7 @@ export default function Login() {
 
         <Text ta="center" mt="md">
           Already have an account?{" "}
-          <Anchor<"a"> href="login" weight={700}>
+          <Anchor component={Link} href="/login" weight={700}>
             Login
           </Anchor>
         </Text>

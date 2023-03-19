@@ -14,3 +14,10 @@ export const registerSchema = z.object({
 });
 
 export type IRegisterSchema = z.infer<typeof registerSchema>;
+
+export const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+export type ILoginSchema = z.infer<typeof loginSchema>;
