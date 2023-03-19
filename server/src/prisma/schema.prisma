@@ -22,8 +22,8 @@ model Post {
     id          Int      @id @default(autoincrement())
     title       String?
     description String
-    upvote      String
-    downvote    String
+    upvote      Int
+    downvote    Int
     user        User     @relation(fields: [userId], references: [id])
     userId      Int
     views       Int
