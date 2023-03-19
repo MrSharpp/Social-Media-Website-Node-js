@@ -24,6 +24,7 @@ import {
 } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Logo from '../../../logo.png';
 
 const Header = () => {
   const router = useRouter();
@@ -39,9 +40,7 @@ const Header = () => {
           borderBottom: `1px solid ${theme.colors.gray[2]}`,
         })}
       >
-        <Title order={2} color={'blue'}>
-          Amu Tweets
-        </Title>
+        <img src={'./logo.png'} width={150} />
 
         <TextInput
           icon={<IconSearch size={20} />}
