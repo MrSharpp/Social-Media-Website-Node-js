@@ -39,7 +39,9 @@ const Header = () => {
           borderBottom: `1px solid ${theme.colors.gray[2]}`,
         })}
       >
-        <MantineLogo size={30} />
+        <Title order={2} color={'blue'}>
+          Amu Tweets
+        </Title>
 
         <TextInput
           icon={<IconSearch size={20} />}
