@@ -3,11 +3,12 @@ import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import DefaultLayout from "@/Components/DefaultLayout";
 import { Montserrat, Poppins, Quicksand } from "next/font/google";
-
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/QueryClient";
 const fontStyles = Quicksand({
   // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   weight: ["300", "400", "500", "600", "700"],
-  subsets: ['latin']
+  subsets: ["latin"],
 });
 
 export default function App(props: AppProps) {
@@ -40,7 +41,9 @@ export default function App(props: AppProps) {
           }),
         }}
       >
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient} >
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </MantineProvider>
     </>
   );

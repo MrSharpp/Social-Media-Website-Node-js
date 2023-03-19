@@ -39,8 +39,9 @@ import {
     },
   }));
   
-  export default function login() {
+  export default function Login() {
     const { classes } = useStyles();
+
     return (
       <div className={classes.wrapper}>
         <Paper className={classes.form} radius={0} p={30}>
