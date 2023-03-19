@@ -53,7 +53,7 @@ const DefaultLayout = ({
       }
       padding="md"
     >
-      <Box>
+      <Box style={{ maxWidth: 800 }} mt="xl" mr="auto" ml="auto">
         {children}
       </Box>
     </AppShell>
