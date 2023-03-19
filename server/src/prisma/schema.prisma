@@ -8,13 +8,14 @@ generator client {
 }
 
 model User {
-    id       Int     @id @default(autoincrement())
-    username String
-    email    String
-    password String
-    role     String
-    Post     Post[]
-    Event    Event[]
+    id             Int     @id @default(autoincrement())
+    username       String
+    email          String  @unique()
+    password       String
+    role           String
+    Post           Post[]
+    Event          Event[]
+    intractedPosts String
 }
 
 model Post {

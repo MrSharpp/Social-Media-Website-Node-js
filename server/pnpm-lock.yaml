@@ -17,6 +17,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
   D: ^1.0.0
+  add: ^2.0.6
   bcrypt: ^5.1.0
   eslint: ^8.0.1
   eslint-config-prettier: ^8.3.0
@@ -44,6 +45,7 @@ dependencies:
   '@nestjs/platform-express': 9.3.10_7ftkheainf6elxr73aabueoaxm
   '@prisma/client': 4.11.0_prisma@4.11.0
   D: 1.0.0
+  add: 2.0.6
   bcrypt: 5.1.0
   jwt-simple: 0.5.6
   nestjs-zod: 1.2.3_yjtzrmnphtrfo3bovlpv546rem
@@ -1781,6 +1783,10 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /add/2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
+    dev: false
 
   /agent-base/6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
