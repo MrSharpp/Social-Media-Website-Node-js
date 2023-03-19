@@ -16,6 +16,7 @@ model User {
     Post           Post[]
     Event          Event[]
     intractedPosts String
+    avatarLink     String
 }
 
 model Post {

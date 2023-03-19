@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Post, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Res
+} from '@nestjs/common';
 import { Response } from 'express';
 import { DatabaseService } from 'src/prisma/prisma.service';
 import { DeleteClassDTO, PostClassDTO } from './Post.DTO';
@@ -39,6 +47,19 @@ export class PostController {
     });
 
     return response.status(200).send(posts);
+  }
+
+  @Get('feeds/:id')
+  async getUserPosts(@Res() response: Response, @Param('id') id) {
+    const posts = await this.service.post.findMany({
+      where: {
+        userId: id
+      },
+      include: { user: true },
+      orderBy: { created: 'desc' }
+    });
+
+    return posts;
   }
 
   @Post()

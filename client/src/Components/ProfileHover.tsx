@@ -1,11 +1,17 @@
 import { HoverCard, Avatar, Group, Stack, Anchor, Text } from '@mantine/core';
-import { IUser } from "@/sharedInterfaces/post";
+import { IUser } from '@/sharedInterfaces/post';
 
-export function ProfileHover({ showProfile, user }: { showProfile: boolean, user: IUser }) {
+export function ProfileHover({
+  showProfile,
+  user,
+}: {
+  showProfile: boolean;
+  user: IUser;
+}) {
   if (!showProfile)
     return (
       <Avatar
-        src="https://avatars.githubusercontent.com/u/79146003?s=200&v=4"
+        src="https://gravatar.com/avatar/1f82b0492a0a938288c2d5b70534a1fb?s=400&d=robohash&r=x"
         radius="xl"
       />
     );
@@ -14,7 +20,7 @@ export function ProfileHover({ showProfile, user }: { showProfile: boolean, user
     <HoverCard width={320} shadow="md" withArrow>
       <HoverCard.Target>
         <Avatar
-          src="https://avatars.githubusercontent.com/u/79146003?s=200&v=4"
+          src="https://gravatar.com/avatar/1f82b0492a0a938288c2d5b70534a1fb?s=400&d=robohash&r=x"
           radius="xl"
         />
       </HoverCard.Target>

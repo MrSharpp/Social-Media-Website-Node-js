@@ -18,10 +18,22 @@ import { TrendingPosts } from '@/Components/TrendingPosts';
 import { Events } from '@/Components/Events';
 import DefaultLayout from '@/Components/DefaultLayout';
 import { UserProfile } from '@/Components/UserProfile';
+import { decode } from '@/utils/jwt';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getUserPosts } from '@/api/post';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const [feeds, setFeeds] = useState();
+
+  const getFeedQuery = useQuery({
+    queryKey: ['get_feeds'],
+    queryFn: () => getUserPosts(decode(localStorage.getItem('token')).id),
+    initialData: [],
+  });
+
   return (
     <DefaultLayout
       Left={() =>
@@ -35,6 +47,7 @@ export default function Home() {
             { label: 'Upvotes', value: '23' },
             { label: 'Downvotes', value: '23' },
           ]}
+          avatar={''}
         />}
       Right={() => <Events />}
     >
@@ -46,9 +59,7 @@ export default function Home() {
       </Head>
 
       <Stack>
-        <Feed showProfile={false} />
-        <Feed showProfile={false} />
-        <Feed showProfile={false} />
+        {getFeedQuery?.data?.map((post) => <>{JSON.stringify(post)}</>)}
       </Stack>
     </DefaultLayout>
   );

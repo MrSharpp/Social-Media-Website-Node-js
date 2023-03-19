@@ -28,14 +28,17 @@ interface IProps {
 export const Feed = ({ showProfile = true, data }: IProps) => {
   const [status, setStatus] = useState<'upvoted' | 'downoted' | ''>('');
 
+  if (!data) return;
+  console.log(data);
+
   return (
     <Paper withBorder p="sm">
       <Flex gap="sm">
-        <ProfileHover showProfile={showProfile} user={data.user} />
+        <ProfileHover showProfile={showProfile} user={data} />
 
         <Box style={{ width: '100%' }}>
           <Title order={5} mb="xs" mt={2}>
-            {data.user.username}
+            {data.username}
           </Title>
 
           <TypographyStylesProvider>

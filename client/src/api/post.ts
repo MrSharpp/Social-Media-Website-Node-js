@@ -28,3 +28,7 @@ export async function DeletePost(body: z.infer<typeof DeletePostSchema>) {
 export async function getAllPosts() {
   return axios.get('/post').then((res) => res.data);
 }
+
+export async function getUserPosts(userId: string) {
+  return axios.get(`/posts/${userId}`).then((res) => res.data);
+}
