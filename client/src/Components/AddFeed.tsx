@@ -20,10 +20,11 @@ import { useMutation } from '@tanstack/react-query';
 import { DeletePost } from '../api/post';
 import { notifications } from '@mantine/notifications';
 import { useEffect } from 'react';
+import { NotifiationError } from './Notification';
 
 export const AddFeed = () => {
   useEffect(() => {
-    notifications.show({ title: 'ee', message: 'a' });
+    NotifiationError('Somethng Went Wrong');
   }, []);
 
   const addMutation = useMutation({
