@@ -19,7 +19,7 @@ import {
 
 export const AddFeed = () => {
   return (
-    <Paper radius={"md"}>
+    <Paper radius={"md"} withBorder>
       <Flex p="xs" gap="sm">
         <Avatar radius={"md"} mr={0} size={44} />
 

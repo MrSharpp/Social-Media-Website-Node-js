@@ -27,7 +27,7 @@ import {
 
 export const SingleEvent = () => {
   return (
-    <Paper radius={'md'}>
+    <Paper radius={'md'} withBorder>
       <Flex p="xs" gap="sm" pr="lg">
         <Avatar radius={'md'} mr={0} size={44} />
 

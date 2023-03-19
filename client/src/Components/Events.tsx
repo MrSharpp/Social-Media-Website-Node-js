@@ -2,7 +2,7 @@ import { Anchor, Flex, Paper, Text } from '@mantine/core';
 
 export const Events = () => {
   return (
-    <Paper radius={'md'}>
+    <Paper radius={'md'} withBorder>
       <Text weight={600} size="md" py="10px" pl={'20px'} color="gray">
         Recent Events
       </Text>
