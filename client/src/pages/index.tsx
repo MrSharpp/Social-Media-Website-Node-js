@@ -11,6 +11,7 @@ import {
   Avatar,
   Input,
   Stack,
+  Loader,
 } from '@mantine/core';
 import { AddFeed } from '@/Components/AddFeed';
 import { Feed } from '@/Components/Feed';
@@ -42,9 +43,12 @@ export default function Home() {
       <AddFeed />
 
       <Stack mt="md">
-        {postQuery.data.map((post: IPost) =>
-          <Feed key={post.id} data={post} />
-        )}
+        {postQuery.data.length > 0 &&
+          postQuery.data.map((post: IPost) =>
+            <Feed key={post.id} data={post} />
+          )}
+
+        {!postQuery.data.length && <Loader mr={'auto'} ml="auto" mt="lg" />}
       </Stack>
     </DefaultLayout>
   );
