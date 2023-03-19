@@ -31,10 +31,10 @@ export const AddFeed = () => {
     onSuccess: () => {
       NotifiationSucess('Words Posted!');
     },
-    onError: err => {
-      console.log(err);
+    onError: ({ response }) => {
+      console.log(response.data.message);
 
-      NotifiationError('Somethng Went Wrong');
+      NotifiationError(response.data.message);
     },
   });
 
